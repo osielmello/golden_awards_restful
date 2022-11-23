@@ -1,7 +1,6 @@
 package com.awards.service;
 
 import com.awards.model.entity.MovieEntity;
-import com.awards.model.entity.MovieProducerEntity;
 import com.awards.model.entity.MovieStudioEntity;
 import com.awards.model.entity.StudioEntity;
 import com.awards.repository.MovieStudioRepository;
