@@ -1,4 +1,4 @@
-package com.awards.entity.base;
+package com.awards.model.entity.base;
 
 /**
  * Interface para padronização de implementações em entities.

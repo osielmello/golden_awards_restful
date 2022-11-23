@@ -1,8 +1,8 @@
 package com.awards.service;
 
-import com.awards.entity.MovieEntity;
-import com.awards.entity.MovieProducerEntity;
-import com.awards.entity.ProducerEntity;
+import com.awards.model.entity.MovieEntity;
+import com.awards.model.entity.MovieProducerEntity;
+import com.awards.model.entity.ProducerEntity;
 import com.awards.repository.MovieProducerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -40,4 +40,32 @@ public class MovieProducerService {
         this.movieProducerRepository.saveAll(movieStudios);
     }
 
+
+    /**
+     * Retorna todos os produtores com filmes vencedores.
+     *
+     * @return filmes e produtores {@link List}
+     */
+    public List<MovieProducerEntity> findAllByMovieIsWinner() {
+        return this.movieProducerRepository.findAllByMovieIsWinner();
+    }
+
+    /**
+     * Busca por filme.
+     *
+     * @param movie {@link MovieEntity}
+     * @return producers
+     */
+    public List<MovieProducerEntity> findByMovie(MovieEntity movie) {
+        return this.movieProducerRepository.findByMovie(movie);
+    }
+
+    /**
+     * Exclui todos do filme.
+     *
+     * @param movie {@link MovieEntity}
+     */
+    public void deleteByMovie(MovieEntity movie) {
+        this.movieProducerRepository.deleteByMovie(movie);
+    }
 }

@@ -1,6 +1,6 @@
-package com.awards.entity;
+package com.awards.model.entity;
 
-import com.awards.entity.base.AbstractEntity;
+import com.awards.model.entity.base.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,9 +1,9 @@
 package com.awards.service;
 
-import com.awards.entity.MovieEntity;
-import com.awards.entity.MovieStudioEntity;
-import com.awards.entity.StudioEntity;
-import com.awards.repository.MovieRepository;
+import com.awards.model.entity.MovieEntity;
+import com.awards.model.entity.MovieProducerEntity;
+import com.awards.model.entity.MovieStudioEntity;
+import com.awards.model.entity.StudioEntity;
 import com.awards.repository.MovieStudioRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -38,5 +38,24 @@ public class MovieStudioService {
                 .collect(Collectors.toList());
 
         this.movieStudioRepository.saveAll(movieStudios);
+    }
+
+    /**
+     * Busca por filme.
+     *
+     * @param movie {@link MovieEntity}
+     * @return studios
+     */
+    public List<MovieStudioEntity> findByMovie(MovieEntity movie) {
+        return this.movieStudioRepository.findByMovie(movie);
+    }
+
+    /**
+     * Exclui todos do filme.
+     *
+     * @param movie {@link MovieEntity}
+     */
+    public void deleteByMovie(MovieEntity movie) {
+        this.movieStudioRepository.deleteByMovie(movie);
     }
 }

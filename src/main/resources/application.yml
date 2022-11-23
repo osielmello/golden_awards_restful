@@ -9,3 +9,7 @@ spring:
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: update
+  h2:
+    console.enabled: true
+
+app.filename: movie_list.csv

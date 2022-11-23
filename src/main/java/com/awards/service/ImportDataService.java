@@ -1,10 +1,11 @@
 package com.awards.service;
 
-import com.awards.entity.MovieEntity;
-import com.awards.entity.ProducerEntity;
-import com.awards.entity.StudioEntity;
 import com.awards.enums.YesOrNo;
+import com.awards.model.entity.MovieEntity;
+import com.awards.model.entity.ProducerEntity;
+import com.awards.model.entity.StudioEntity;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
@@ -13,11 +14,9 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Serviço para análise e importação do arquivo de CSV para o H2.
@@ -26,7 +25,10 @@ import java.util.stream.Stream;
  */
 @Slf4j
 @Service
-public class ImportData {
+public class ImportDataService {
+
+    @Value("${app.filename}")
+    String fileName;
 
     private static final String SEMICOLON_DELIMITER = ";";
     private static final String COMMA_DELIMITER = ",";
@@ -44,8 +46,8 @@ public class ImportData {
     private final MovieProducerService movieProducerService;
     private final MovieStudioService movieStudioService;
 
-    public ImportData(ResourceLoader resourceLoader, MovieService movieService, ProducerService producerService, StudioService studioService,
-                      MovieProducerService movieProducerService, MovieStudioService movieStudioService) {
+    public ImportDataService(ResourceLoader resourceLoader, MovieService movieService, ProducerService producerService, StudioService studioService,
+                             MovieProducerService movieProducerService, MovieStudioService movieStudioService) {
         this.resourceLoader = resourceLoader;
         this.movieService = movieService;
         this.producerService = producerService;
@@ -55,8 +57,17 @@ public class ImportData {
     }
 
     @PostConstruct
-    private void importData() {
-        Resource resource = this.resourceLoader.getResource("classpath:/data/movie_list.csv");
+    private void importClassPathResource() {
+        Resource resource = this.resourceLoader.getResource("classpath:" + fileName);
+        this.importResource(resource);
+    }
+
+    /**
+     * Importa o resource inserindo os dados no banco.
+     *
+     * @param resource {@link Resource}
+     */
+    public void importResource(Resource resource) {
         if (resource.exists()) {
             try {
                 log.info("Lendo arquivo de filmes");

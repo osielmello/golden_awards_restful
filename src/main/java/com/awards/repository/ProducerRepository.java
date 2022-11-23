@@ -1,6 +1,6 @@
 package com.awards.repository;
 
-import com.awards.entity.ProducerEntity;
+import com.awards.model.entity.ProducerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

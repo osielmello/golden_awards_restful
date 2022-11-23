@@ -1,6 +1,6 @@
 package com.awards.service;
 
-import com.awards.entity.ProducerEntity;
+import com.awards.model.entity.ProducerEntity;
 import com.awards.repository.ProducerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

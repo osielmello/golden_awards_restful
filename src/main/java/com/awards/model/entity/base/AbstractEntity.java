@@ -1,4 +1,4 @@
-package com.awards.entity.base;
+package com.awards.model.entity.base;
 
 /**
  * Classe abstrata para padronização dos atributos obrigatórios e possivelmente métodos futuros já resolvidos

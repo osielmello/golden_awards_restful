@@ -1,6 +1,6 @@
 package com.awards.service;
 
-import com.awards.entity.StudioEntity;
+import com.awards.model.entity.StudioEntity;
 import com.awards.repository.StudioRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,7 @@
-package com.awards.entity;
+package com.awards.model.dto;
 
-import com.awards.entity.base.AbstractEntity;
+import com.awards.model.dto.base.AbstractDto;
+import com.awards.model.entity.base.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,15 +17,11 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Builder
 @Data
-@Entity(name = "studios")
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
-public class StudioEntity extends AbstractEntity<Long> {
+public class StudioDto extends AbstractDto<Long> {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
     private String name;
 }

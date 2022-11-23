@@ -1,13 +1,10 @@
 package com.awards.service;
 
-import com.awards.entity.MovieEntity;
-import com.awards.entity.StudioEntity;
+import com.awards.model.entity.MovieEntity;
 import com.awards.repository.MovieRepository;
-import com.awards.repository.StudioRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,6 +38,10 @@ public class MovieService {
                 .build();
 
         return this.movieRepository.save(movie);
+    }
+
+    public List<MovieEntity> findAllWinning() {
+        return this.movieRepository.findAllByWinnerIsTrue();
     }
 
 }
