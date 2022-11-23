@@ -72,10 +72,11 @@ public class AwardService {
 
         awardBreaks.sort(Comparator.comparing(AwardBreak::getInterval));
 
+        int minInterval = awardBreaks.stream().map(AwardBreak::getInterval).min(Integer::compare).orElse(0);
         int maxInterval = awardBreaks.stream().map(AwardBreak::getInterval).max(Integer::compare).orElse(0);
 
         return AwardDto.builder()
-                .min(awardBreaks.stream().filter(a -> a.getInterval() == 1).collect(Collectors.toList()))
+                .min(awardBreaks.stream().filter(a -> a.getInterval() == minInterval).collect(Collectors.toList()))
                 .max(maxInterval == 0 ? Collections.emptyList() : awardBreaks.stream().filter(a -> a.getInterval() == maxInterval).collect(Collectors.toList()))
                 .build();
     }

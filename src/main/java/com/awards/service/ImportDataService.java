@@ -58,7 +58,7 @@ public class ImportDataService {
 
     @PostConstruct
     private void importClassPathResource() {
-        Resource resource = this.resourceLoader.getResource("classpath:" + fileName);
+        Resource resource = this.resourceLoader.getResource("classpath:/data/" + fileName);
         this.importResource(resource);
     }
 

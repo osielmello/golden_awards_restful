@@ -20,9 +20,6 @@ public abstract class AbstractTest {
     WebApplicationContext webApplicationContext;
 
     @Autowired
-    protected ImportDataService importDataService;
-
-    @Autowired
     ObjectMapper objectMapper;
 
     private MockMvc mvc;
