@@ -82,7 +82,7 @@ public class ImportDataService {
                     int year = Integer.parseInt(values[IDX_YEAR]);
                     String titleMovie = values[IDX_TITLE];
                     String studiosName = values[IDX_STUDIOS];
-                    String producersName = values[IDX_PRODUCERS];
+                    String producersName = values[IDX_PRODUCERS].replaceAll("\\s+and\\s+", ",");
                     boolean winner = false;
 
                     /*

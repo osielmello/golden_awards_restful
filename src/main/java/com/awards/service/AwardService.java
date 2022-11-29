@@ -61,8 +61,8 @@ public class AwardService {
                 int followingWin = movieProducer.getMovie().getYear();
 
                 var awardBreak = AwardBreak.builder()
-                        .followingWin(previousWin)
-                        .previousWin(followingWin)
+                        .previousWin(previousWin)
+                        .followingWin(followingWin)
                         .interval(followingWin - previousWin)
                         .producer(movieProducer.getProducer().getName())
                         .build();

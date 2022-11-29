@@ -3,7 +3,9 @@
 ### Documentação
 Projeto gerado com Gradle e Spring Boot e é compatível com Java 17.
 
-Além da dependência do [H2](https://www.h2database.com/html/main.html), acrescentei o [Lombok](https://projectlombok.org/) para facilitar a criação das entities e models. 
+Além da dependência do [H2](https://www.h2database.com/html/main.html), acrescentei o [Lombok](https://projectlombok.org/) para facilitar a criação das entities e models.
+
+Quando executado, é disponibilizado na porta 8080 em Dev. 
 
 ### Guides
 Para executar o projeto:
