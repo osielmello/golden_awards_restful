@@ -1,6 +1,7 @@
 package com.awards;
 
 import com.awards.base.AbstractTest;
+import com.awards.model.dto.AwardBreak;
 import com.awards.model.dto.AwardDto;
 import com.awards.model.dto.MovieDto;
 import com.awards.model.dto.ProducerDto;
@@ -182,6 +183,13 @@ public class RestFulApiTests extends AbstractTest {
         AwardDto awardDto = this.getResponseAs(AwardDto.class);
 
         Assert.isTrue(awardDto.getMin().size() > 0, "O menor intervalo deve ter valor.");
-        Assert.isTrue(awardDto.getMin().get(0).getProducer().equals("Ricardo Martins"), "O menor intervalo deve ter valor.");
+        AwardBreak min = awardDto.getMin().get(0);
+
+        Assert.isTrue(min.getProducer().equals("Joel Silver"), "Produtor diferente do esperado.");
+        Assert.isTrue(min.getInterval() == 1, "Intervalo diferente do esperado.");
+        Assert.isTrue(min.getPreviousWin() == 1990, "Menor ano diferente do esperado.");
+        Assert.isTrue(min.getFollowingWin() == 1991, "Maior ano diferente do esperado.");
+
+        Assert.isTrue(awardDto.getMax().size() > 0, "O menor intervalo deve ter valor.");
     }
 }
